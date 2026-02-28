@@ -1,4 +1,4 @@
-![CI](https://github.com/YOUR_USERNAME/YOUR_REPO/actions/workflows/ci.yml/badge.svg)
+[![CI](https://github.com/anjaligarg0228/cron/actions/workflows/ci.yml/badge.svg)](https://github.com/anjaligarg0228/cron/actions/workflows/ci.yml)
 
 # DevSync Automation Project
 
