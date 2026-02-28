@@ -1,8 +1,8 @@
-name: Daily Auto Commit
+name: Daily Cron Commit
 
 on:
   schedule:
-    - cron: '15 2 * * *'   # specific time (UTC)
+    - cron: '10 3 * * *'   # Runs daily at 03:10 UTC (specific time)
   workflow_dispatch:
 
 jobs:
@@ -12,17 +12,17 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: 22f2000850@ds.study.iitm.ac.in - Update timestamp
-        run: |
-          echo "Last updated on $(date -u)" >> daily-log.txt
+      - name: 22f2000850@ds.study.iitm.ac.in
+        run: echo "Running daily update"
 
-      - name: Commit changes
+      - name: Create commit
         run: |
+          echo "Updated on $(date -u)" >> daily-log.txt
           git config user.name "DevSync Bot"
           git config user.email "22f2000850@ds.study.iitm.ac.in"
           git add daily-log.txt
-          git commit -m "Automated daily commit - $(date -u)" || echo "No changes to commit"
+          git commit -m "Daily automated commit $(date -u)" || echo "No changes"
           git push
